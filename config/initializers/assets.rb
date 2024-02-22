@@ -10,3 +10,8 @@ Rails.application.config.assets.version = "1.0"
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+#demande à Asset-pipeline d'aller chercher les différents fichiers lors de la compilation
+
+Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
+Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
