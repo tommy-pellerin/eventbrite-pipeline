@@ -5,9 +5,17 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @user_events = Event.all.where(admin:current_user.id)
-  end
+    @random_default_avatar = random_default_avatar
+  end 
 
-  # private
+
+
+  private
+
+  def random_default_avatar
+    default_avatars = ['animal-profil-1.jpg', 'animal-profil-2.jpg', 'animal-profil-3.jpg']
+    default_avatars.sample
+  end  
 
   # def authorize_admin!
   #   unless current_user.admin_events.include?(@event)
