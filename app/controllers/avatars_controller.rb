@@ -1,11 +1,22 @@
 class AvatarsController < ApplicationController
   def create
-    # @user = User.find(params[:user_id])
-    # @user.avatar.attach(params[:avatar])
-    # redirect_to(user_path(@user))
+    puts "$"*50
+    puts params
+    puts "Attachement de avatar à user encours "
+    puts "$"*50    
+    @user = User.find(params[:user_id])
+    @user.avatar.attach(params[:avatar])
+    redirect_to(user_path(@user))
+    
+  end
 
-    @event = Event.find(params[:event_id])
-    @event.avatar.attach(params[:avatar])
-    redirect_to(event_path(@event))
+  def destroy
+    puts "$"*50
+    puts params
+    puts "Suppression de avatar à user encours "
+    puts "$"*50    
+    @user = User.find(params[:user_id])
+    @user.avatar.purge
+    redirect_to(user_path(@user), notice: "Votre photo a été supprimée avec succès.")
   end
 end

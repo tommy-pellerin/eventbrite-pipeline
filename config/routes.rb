@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :attendances, only:[:index,:new,:create]
-    resources :avatars, only: [:create]
+    resources :photo_events, only: [:create,:destroy]
   end
 
   resources :users, only:[:show] do 
-    resources :avatars, only: [:create]
+    resources :avatars, only: [:create,:destroy]
   end
   
   #code concernant strip paiement

@@ -1,18 +1,21 @@
 <div class="container">
   <h1>Editer l'event</h1>
-  <!--ajout de photo(avatar)-->
+  <!--ajout de photo(photo_event)-->
   <p>
-    <%if @event.avatar.attached?%>
-      <%= image_tag @event.avatar, alt: 'avatar' %>
+    <%if @event.photo_event.attached?%>
+      <%= image_tag @event.photo_event, alt: 'photo_event' %>
+      <p><%= link_to "Supprimer la photo", event_photo_event_path(@event), data: {turbo: true,turbo_method: :delete,turbo_confirm: "Are you sure?"}, class:"btn btn-danger" %></p>
     <%else%>
       <p>=== Il n'y a pas encore de photo lié à cet event ===</p>
     <%end%>
   
-    <%= form_tag event_avatars_path(@event), multipart: true do %>
-      <%= file_field_tag :avatar %>
-      <%= submit_tag "mettre à jour" %>
+    <%= form_tag event_photo_events_path(@event), multipart: true do %>
+      <%= file_field_tag :photo_event %>
+      <%= submit_tag "ajouter/supprimer" %>
     <% end %>
   </p>
+
+  
 
   <!--formulaire modification d'event-->
   <%= form_with(model: @event, url: event_path(@event)) do |form| %>

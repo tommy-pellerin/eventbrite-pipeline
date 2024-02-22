@@ -28,7 +28,7 @@ class Event < ApplicationRecord
   belongs_to :admin, class_name: 'User', foreign_key: 'admin_id'
   has_many :attendances
   has_many :users, through: :attendances
-  has_one_attached :avatar
+  has_one_attached :photo_event
 
   def end_date
     self.start_date + self.duration

@@ -11,8 +11,8 @@
 <div class="container">
   <h1>Event show</h1>
   <p>
-    <%if @event.avatar.attached?%>
-      <%= image_tag @event.avatar, alt: 'avatar' %>
+    <%if @event.photo_event.attached?%>
+      <%= image_tag @event.photo_event, alt: 'photo_event' %>
     <%else%>
       <p>=== Il n'y a pas encore de photo lié à cet event ===</p>
     <%end%>
